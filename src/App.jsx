@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from './pages/Landing';
 import ProductDetail from './pages/ProductDetail';
-import ContactUs from './pages/Contactus';
+import ContactUs from './pages/ContactUs';
 
 
 
