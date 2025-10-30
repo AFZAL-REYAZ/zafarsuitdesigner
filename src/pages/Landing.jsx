@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Carousel from "../components/Carousel";
 import sherwaniImg from "../assets/Sherwani.jpg";
 import indoWesternImg from "../assets/IndoWestern.jpg";
@@ -12,7 +12,6 @@ import Sherwani1 from "../assets/bestseller/sherwani.jpg";
 import OfferSection from "../components/OfferSection";
 import BenefitsSection from "../components/BenefitsSection";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const categories = [
   {
@@ -68,54 +67,28 @@ const products = [
 
 
 export default function Landing() {
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    // Smooth scroll to top when page loads
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }, []);
+  const navigate = useNavigate();
 
   const showProductDetail = (product) => {
     navigate("/ProductDetail", { state: { product } });
   };
-  
   return (
     <div className="font-sans mt-24">
       {/* ✅ Carousel */}
       <Carousel />
       <OfferSection />
-      
       {/* ✅ Hero Categories */}
       <section className="bg-[#F1ECE7] py-16 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-10">
-              Shop our top categories
-            </h2>
-          </motion.div>
-          
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-10">
+            Shop our top categories
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -5,
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
-                  transition: { duration: 0.2 }
-                }}
-                className="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer"
+                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer"
               >
                 <div className="aspect-[3/4] overflow-hidden">
                   <img
@@ -128,15 +101,9 @@ export default function Landing() {
                   <h3 className="text-lg font-medium text-gray-900">
                     {cat.title}
                   </h3>
-                  <motion.span 
-                    className="text-xl"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    →
-                  </motion.span>
+                  <span className="text-xl">→</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -147,88 +114,43 @@ export default function Landing() {
       {/* ✅ Product Grid */}
       <section className="py-16 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex justify-between items-end mb-10"
-          >
-            <div>
-              <p className="text-amber-700 font-medium mb-2">PREMIUM SELECTION</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Best Sellers
-              </h2>
-            </div>
-            <motion.button 
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400 }}
-              className="hidden md:flex items-center text-amber-700 hover:text-amber-900 font-medium"
-            >
-              View All <span className="ml-2">→</span>
-            </motion.button>
-          </motion.div>
-          
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-10">
+            Best Sellers
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {products.map((product, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -5,
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
-                }}
-                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="bg-white border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
                 onClick={() => showProductDetail(product)}
               >
-                <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative aspect-[3/4]">
                   <img
-                    src={product.images[0]}
+                    src={product.images[0]} // ✅ show the first image
                     alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                   />
                   {product.sale && (
-                    <span className="absolute top-3 right-3 bg-amber-700 text-white text-xs font-medium px-3 py-1 rounded-full">
-                      SALE
+                    <span className="absolute top-3 right-3 bg-white text-gray-900 text-sm px-2 py-1 rounded">
+                      Sale
                     </span>
                   )}
-                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <motion.button 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full py-2 bg-white text-amber-900 font-medium rounded-md hover:bg-amber-50 transition-colors"
-                    >
-                      Quick View
-                    </motion.button>
-                  </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-medium text-gray-800 mb-1">
+                <div className="p-4 text-center">
+                  <h3 className="text-lg font-medium text-gray-800">
                     {product.title}
                   </h3>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-gray-500 line-through text-sm">
-                        Rs. {product.oldPrice}
-                      </p>
-                      <p className="text-lg font-semibold text-amber-800">
-                        Rs. {product.price}
-                      </p>
-                    </div>
-                    <div className="flex items-center text-amber-500">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
+                  <p className="text-gray-500 line-through text-sm">
+                    Rs. {product.oldPrice}
+                  </p>
+                  <p className="text-lg font-semibold text-gray-900">
+                    From Rs. {product.price}
+                  </p>
+                  <button className="mt-4 px-6 py-2 border rounded-full text-gray-900 hover:bg-gray-900 hover:text-white transition">
+                    Choose options
+                  </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
