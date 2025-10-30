@@ -7,7 +7,7 @@ import bundiKurtaImg from "../assets/BundiKurta.jpg";
 
 import PrintedCottonGreen1 from "../assets/bestseller/Printed-Cotton-Kurta-Green.jpeg";
 import ChikanKariKurtaYellow1 from "../assets/bestseller/ChikanKariKurta-Yellow.avif";
-import BundiKurta1 from "../assets/bestseller/bundiKurta.avif";
+import BundiKurta1 from "../assets/bestseller/bundikurta.avif";
 import Sherwani1 from "../assets/bestseller/sherwani.jpg";
 import OfferSection from "../components/OfferSection";
 import BenefitsSection from "../components/BenefitsSection";
