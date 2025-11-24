@@ -22,7 +22,8 @@ const Header = () => {
 
   const navLinks = [
     { label: "Home", path: "/" },
-    { label: "Log In", path: "/contactus" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contactus" },
   ];
 
   return (
@@ -48,96 +49,47 @@ const Header = () => {
         <div className="relative mx-auto max-w-7xl px-4">
           <div className="track text-sm font-semibold whitespace-nowrap text-amber-900">
             {items.map((item, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center px-3 py-1 rounded-full bg-white/70 border border-amber-200 shadow-sm mr-2"
-              >
-                <span className="mr-2">🔔</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-rose-600">
-                  {item}
-                </span>
-              </span>
-            ))}
-            {items.map((item, i) => (
-              <span
-                key={`dup-${i}`}
-                className="inline-flex items-center px-3 py-1 rounded-full bg-white/70 border border-amber-200 shadow-sm mr-2"
-              >
-                <span className="mr-2">🔔</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-rose-600">
-                  {item}
-                </span>
-              </span>
+              <span key={i}>{item}</span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Main header */}
-      <div className="flex justify-between items-center px-6 lg:px-16 py-4 bg-white">
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold tracking-wider text-amber-900">
+      {/* Main nav */}
+      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+        <Link to="/" className="text-lg font-serif font-semibold text-gray-900">
           Zafar Suits Designer
         </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8 text-gray-800 font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.path}
-              className="hover:text-red-600 transition"
-            >
-              {link.label}
+        <nav className="hidden md:flex items-center gap-6">
+          {navLinks.map((l) => (
+            <Link key={l.path} to={l.path} className="text-gray-700 hover:text-gray-900 transition">
+              {l.label}
             </Link>
           ))}
-          {/* Cart Icon */}
-          {/* <Link to="/cart" className="ml-4">
-            <FaShoppingBag className="text-gray-800" size={20} />
-          </Link> */}
+          <Link to="/ProductDetail" className="relative">
+            <FaShoppingBag className="text-gray-700 hover:text-gray-900" />
+          </Link>
         </nav>
-
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden flex items-center space-x-4">
-          {/* <Link to="/cart" className="text-gray-700 hover:text-amber-700 transition-colors relative">
-            <FaShoppingBag />
-          </Link> */}
-          <button
-            className="text-gray-800"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-          </button>
-        </div>
+        <button
+          className="md:hidden p-2 rounded-md border border-gray-200"
+          onClick={() => setMenuOpen((s) => !s)}
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg px-6 py-6 space-y-5 absolute w-full">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.path}
-              onClick={() => setMenuOpen(false)}
-              className="block text-gray-800 font-medium hover:text-amber-700 border-b border-gray-100 pb-2"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pt-2 flex items-center justify-between">
-            <Link
-              to="/"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-2 text-gray-800 font-medium hover:text-amber-700"
-            >
-              Home
-            </Link>
-            <Link
-              to="/cart"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-2 text-gray-800 font-medium hover:text-red-600"
-            >
-              <FaShoppingBag /> Cart
+        <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="px-4 py-3 flex flex-col gap-3">
+            {navLinks.map((l) => (
+              <Link key={l.path} to={l.path} className="text-gray-700" onClick={() => setMenuOpen(false)}>
+                {l.label}
+              </Link>
+            ))}
+            <Link to="/ProductDetail" className="text-gray-700" onClick={() => setMenuOpen(false)}>
+              Shop
             </Link>
           </div>
         </div>

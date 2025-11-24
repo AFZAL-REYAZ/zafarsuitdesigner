@@ -4,118 +4,143 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1a1a1a] text-white py-12 mt-auto">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-          {/* Company Info */}
+    <footer className="bg-gradient-to-b from-[#0f0d0d] via-[#121212] to-[#1a1414] text-gray-300 mt-auto border-t border-amber-400/20">
+      <div className="max-w-7xl mx-auto px-6 py-14">
+        {/* Top grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Brand + social */}
           <div>
-            <div>
-              <h2 className="text-2xl font-bold">
-                <span className="  ml-1 text-white">Zafar Suits Designer</span>
-              </h2>
-              <p className="text-sm mt-6 text-gray-400">
-                Zafar suits designer, All rights reserved.
-              </p>
-            </div>
-            <div className="flex space-x-4 mt-2">
-  <a
-    href="https://www.facebook.com/share/1B6s1iVwVA/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-500 hover:text-blue-600 text-2xl"
-  >
-    <FaFacebookF />
-  </a>
-  <a
-    href="https://youtube.com/@zafar-l7h?si=61fVGi9jzJ4U63ej"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-red-500 hover:text-red-600 text-2xl"
-  >
-    <FaYoutube />
-  </a>
-  <a
-    href="https://www.instagram.com/alijafar.jafar.503?igsh=MWkwcWI1b3o4eXhyOA=="
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-pink-500 hover:text-pink-700 text-2xl"
-  >
-    <FaInstagram />
-  </a>
-</div>
+            <h2 className="text-2xl md:text-3xl font-serif font-semibold text-amber-300 tracking-wide">Zafar Suits Designer</h2>
+            <p className="mt-3 text-sm text-gray-400">
+              Timeless tailoring and contemporary silhouettes crafted with care.
+            </p>
 
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h6 className="text-lg font-semibold mb-2 font-serif">Quick Links</h6>
-            <div className="flex flex-col space-y-2">
-              <Link to="/" className="text-gray-400 hover:text-white">
-                Home
-              </Link>
-              <Link to="/about" className="text-gray-400 hover:text-white">
-                About Us
-              </Link>
-              <Link to="/services" className="text-gray-400 hover:text-white">
-                Services
-              </Link>
-              <Link to="/fleet" className="text-gray-400 hover:text-white">
-                Fleet
-              </Link>
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href="https://www.facebook.com/share/1B6s1iVwVA/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 transition"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://youtube.com/@zafar-l7h?si=61fVGi9jzJ4U63ej"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 transition"
+              >
+                <FaYoutube />
+              </a>
+              <a
+                href="https://www.instagram.com/alijafar.jafar.503?igsh=MWkwcWI1b3o4eXhyOA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 transition"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 transition"
+              >
+                <FaLinkedinIn />
+              </a>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Shop */}
           <div>
-            <h6 className="text-lg font-semibold mb-2 font-serif">Services</h6>
-            <div className="flex flex-col space-y-2">
-              <Link to="/jpg-to-pdf" className="text-gray-400 hover:text-white">
-                Sherwani Collection
-              </Link>
-              <Link to="/pdf-to-jpg" className="text-gray-400 hover:text-white">
-                Indo Western Collection
-              </Link>
-              <Link to="/comp-pdf-img" className="text-gray-400 hover:text-white">
-                Jodhpuri Collection
-              </Link>
-              <Link to="/photgraphy-report" className="text-gray-400 hover:text-white">
-                Bundi Kurta Set Collection
-              </Link>
-            </div>
+            <h6 className="text-lg font-serif font-semibold text-amber-300 mb-3 uppercase tracking-wider">Shop</h6>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/" className="hover:text-amber-300 transition">Home</Link>
+              </li>
+              <li>
+                <Link to="/contactus" className="hover:text-amber-300 transition">Contact</Link>
+              </li>
+              <li>
+                <span className="text-gray-400 hover:text-amber-300 transition cursor-default">Sherwani</span>
+              </li>
+              <li>
+                <span className="text-gray-400 hover:text-amber-300 transition cursor-default">Indo Western</span>
+              </li>
+              <li>
+                <span className="text-gray-400 hover:text-amber-300 transition cursor-default">Jodhpuri</span>
+              </li>
+              <li>
+                <span className="text-gray-400 hover:text-amber-300 transition cursor-default">Bundi Kurta Set</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Support */}
           <div>
-            <h6 className="text-lg font-semibold mb-2 font-serif">Contact Us</h6>
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center space-x-2">
-                <MdLocationOn className="text-gray-400" />
-                <p className="text-gray-400 text-sm">
-                  Chand Tara dawakhana ke samne,
-                  Badwali chowki indore 452001
+            <h6 className="text-lg font-serif font-semibold text-amber-300 mb-3 uppercase tracking-wider">Support</h6>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/contactus" className="hover:text-amber-300 transition">Customer Care</Link></li>
+              <li><a href="#" className="hover:text-amber-300 transition">Shipping & Returns</a></li>
+              <li><a href="#" className="hover:text-amber-300 transition">Sizing & Fit</a></li>
+              <li><a href="#" className="hover:text-amber-300 transition">Care Instructions</a></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h6 className="text-lg font-serif font-semibold text-amber-300 mb-3 uppercase tracking-wider">Contact</h6>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start gap-3">
+                <MdLocationOn className="text-amber-400 mt-0.5" />
+                <p className="text-gray-400">
+                  Chand Tara Dawakhana ke samne,<br />
+                  Badwali Chowki, Indore 452001
                 </p>
               </div>
-              <div className="flex items-center space-x-2">
-                <MdPhone className="text-gray-400" />
-                <p className="text-gray-400 text-sm">+91 7351227054</p>
-                <p className="text-gray-400 text-sm">+91 8878802784</p>
+              <div className="flex items-center gap-3">
+                <MdPhone className="text-amber-400" />
+                <div className="text-gray-400">+91 7351227054 · +91 8878802784</div>
               </div>
-              <div className="flex items-center space-x-2">
-                <MdEmail className="text-gray-400" />
-                <p className="text-gray-400 text-sm">zafardesigner339@gmail.com</p>
+              <div className="flex items-center gap-3">
+                <MdEmail className="text-amber-400" />
+                <p className="text-gray-400">zafardesigner339@gmail.com</p>
               </div>
             </div>
           </div>
         </div>
 
-        <hr className="my-8 border-gray-700" />
+        {/* Divider */}
+        <div className="mt-10 border-t border-amber-400/20 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            {/* Newsletter */}
+            <div className="w-full md:w-auto md:flex-1">
+              <form className="flex items-center gap-2" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="email"
+                  placeholder="Subscribe with email"
+                  className="flex-1 md:w-96 px-4 py-2 rounded-full bg-[#161616] text-gray-100 placeholder:text-gray-500 border border-amber-400/20 focus:outline-none focus:ring-2 focus:ring-amber-400/30"
+                />
+                <Link
+                  to="/contactus"
+                  className="px-5 py-2 rounded-full bg-amber-400 text-black font-medium hover:bg-amber-300 transition"
+                >
+                  Subscribe
+                </Link>
+              </form>
+            </div>
 
-        {/* Copyright */}
-        <div className="text-center">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Zafar suits designer. All rights reserved.
-          </p>
+            {/* Legal */}
+            <div className="text-xs text-gray-500">
+              © {new Date().getFullYear()} <span className="font-serif text-amber-300">Zafar Suits Designer</span>. All rights reserved.
+              <span className="mx-2">•</span>
+              <Link to="/terms" className="hover:text-amber-300 transition">Terms</Link>
+              <span className="mx-2">•</span>
+              <Link to="/privacy" className="hover:text-amber-300 transition">Privacy</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
