@@ -24,23 +24,28 @@ const benefits = [
 
 export default function BenefitsSection() {
   return (
-    <section className="bg-[#FAFAF5] py-16 px-6 md:px-20 text-center">
+    <section className="bg-white py-24 px-6 md:px-20 text-center border-t border-gray-100">
       {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-bold text-green-900 mb-4">
-        Our Benefits
-      </h2>
-      <p className="text-lg text-gray-700 mb-12">
-        Choose us for unbeatable style, quality, and comfort in every hat
-      </p>
+      <div className="max-w-3xl mx-auto mb-16">
+        <h2 className="text-4xl md:text-5xl font-serif font-bold text-royal-900 mb-6">
+          The Zafar Difference
+        </h2>
+        <p className="text-lg text-gray-500 font-light">
+          Choose us for unbeatable style, quality, and comfort in every piece.
+        </p>
+      </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
         {benefits.map((benefit) => (
-          <div key={benefit.id} className="text-left">
-            <h3 className="text-xl font-semibold text-green-900 mb-2">
-              {benefit.id} {benefit.title}
+          <div key={benefit.id} className="text-left p-8 bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-gold-200">
+            <span className="block text-5xl font-serif text-gold-300 mb-6 opacity-50 group-hover:opacity-100 transition-opacity">
+              {benefit.id}
+            </span>
+            <h3 className="text-xl font-bold text-royal-900 mb-4 uppercase tracking-wider">
+              {benefit.title}
             </h3>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed font-light">
               {benefit.description}
             </p>
           </div>

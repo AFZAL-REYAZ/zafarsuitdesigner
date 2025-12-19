@@ -16,7 +16,7 @@ const Header = () => {
 
   const items = [
     "Free Delivery All Over India",
-    "10% Diwali Offer",
+    "10% Christmas Offer",
     "New Arrivals",
   ];
 
@@ -29,67 +29,84 @@ const Header = () => {
   return (
     <header
       className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? "shadow-md bg-white/95 backdrop-blur-sm" : "bg-white"
+        scrolled ? "shadow-lg bg-white/95 backdrop-blur-md" : "bg-white"
       }`}
     >
       {/* Top announcement bar */}
-      <div className="bg-gradient-to-r from-amber-50 via-rose-50 to-amber-50 py-2 border-b border-amber-200/50 shadow-sm overflow-hidden">
+      <div className="bg-gradient-to-r from-fuchsia-600 via-orange-500 to-emerald-500 py-2.5 overflow-hidden">
         <style>{`
           .track {
             display: flex;
-            gap: 16px;
+            gap: 40px;
             width: max-content;
-            animation: marquee 12s linear infinite;
+            animation: marquee 20s linear infinite;
           }
           @keyframes marquee {
             from { transform: translateX(0); }
-            to   { transform: translateX(-35%); }
+            to   { transform: translateX(-50%); }
           }
         `}</style>
         <div className="relative mx-auto max-w-7xl px-4">
-          <div className="track text-sm font-semibold whitespace-nowrap text-amber-900">
-            {items.map((item, i) => (
-              <span key={i}>{item}</span>
+          <div className="track text-xs md:text-sm font-medium tracking-wider text-white uppercase">
+            {/* Duplicate items for smoother infinite scroll */}
+            {[...items, ...items, ...items].map((item, i) => (
+              <span key={i} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-white/80"></span>
+                {item}
+              </span>
             ))}
           </div>
         </div>
       </div>
 
       {/* Main nav */}
-      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="text-lg font-serif font-semibold text-gray-900">
-          Zafar Suits Designer
+      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        <Link to="/" className="text-2xl md:text-3xl font-serif font-bold text-indigo-900 tracking-tight">
+          Zafar Suits<span className="text-pink-600">.</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
-            <Link key={l.path} to={l.path} className="text-gray-700 hover:text-gray-900 transition">
+            <Link 
+              key={l.path} 
+              to={l.path} 
+              className="text-xs font-bold uppercase tracking-widest text-indigo-900 hover:text-fuchsia-600 transition-colors duration-300"
+            >
               {l.label}
             </Link>
           ))}
-          <Link to="/ProductDetail" className="relative">
-            <FaShoppingBag className="text-gray-700 hover:text-gray-900" />
+          <Link to="/ProductDetail" className="relative group">
+            <FaShoppingBag className="text-indigo-900 group-hover:text-fuchsia-600 transition-colors duration-300 text-lg" />
           </Link>
         </nav>
         <button
-          className="md:hidden p-2 rounded-md border border-gray-200"
+          className="md:hidden p-2 text-indigo-900 hover:text-fuchsia-600 transition"
           onClick={() => setMenuOpen((s) => !s)}
           aria-label="Toggle Menu"
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+          {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-          <div className="px-4 py-3 flex flex-col gap-3">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl">
+          <div className="flex flex-col p-6 gap-4">
             {navLinks.map((l) => (
-              <Link key={l.path} to={l.path} className="text-gray-700" onClick={() => setMenuOpen(false)}>
+              <Link 
+                key={l.path} 
+                to={l.path} 
+                className="text-sm font-bold uppercase tracking-widest text-indigo-900 hover:text-fuchsia-600" 
+                onClick={() => setMenuOpen(false)}
+              >
                 {l.label}
               </Link>
             ))}
-            <Link to="/ProductDetail" className="text-gray-700" onClick={() => setMenuOpen(false)}>
-              Shop
+            <Link 
+              to="/ProductDetail" 
+              className="text-sm font-bold uppercase tracking-widest text-indigo-900 hover:text-fuchsia-600" 
+              onClick={() => setMenuOpen(false)}
+            >
+              Shop Collection
             </Link>
           </div>
         </div>
