@@ -72,7 +72,7 @@ export default function ContactUs() {
           </div>
 
           <a
-            href="https://wa.me/919102548287"
+            href="https://wa.me/917351227054"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full bg-green-500 text-white px-4 py-3 shadow-lg ring-1 ring-green-400/40 hover:bg-green-600 transition"

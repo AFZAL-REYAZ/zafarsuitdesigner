@@ -4,7 +4,7 @@ import sherwaniImg from "../assets/Sherwani.jpg";
 import indoWesternImg from "../assets/IndoWestern.jpg";
 import jodhpuriImg from "../assets/jodhpuri.jpg";
 import bundiKurtaImg from "../assets/BundiKurta.jpg";
-
+import whatsappicon from "../assets/bestseller/whatsappicon.png";
 import jodhpuri1 from "../assets/bestseller/jodhpuri1.jpeg";
 import jodhpuri2 from "../assets/bestseller/jodhpuri2.jpeg";
 import jodhpuri3 from "../assets/bestseller/jodhpuri3.jpeg";
@@ -315,7 +315,7 @@ export default function Landing() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919102548287"
+        href="https://wa.me/917351227054"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128C7E] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
@@ -324,9 +324,12 @@ export default function Landing() {
         <span className="absolute right-full mr-4 bg-white text-gray-800 px-4 py-2 rounded shadow-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           Chat with us
         </span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-8 h-8">
-          <path d="M16.862 14.153c-.275-.138-1.63-.805-1.883-.897-.253-.092-.437-.138-.62.138-.184.275-.713.897-.873 1.082-.161.184-.322.207-.597.069-.275-.138-1.161-.427-2.213-1.362-.818-.728-1.37-1.627-1.531-1.902-.161-.275-.017-.424.121-.561.124-.123.275-.322.413-.482.138-.161.184-.276.276-.459.047-.092.023-.172-.011-.248-.034-.075-.62-1.493-.85-2.046-.224-.538-.452-.465-.62-.473-.161-.007-.345-.009-.529-.009-.184 0-.482.069-.737.345-.253.275-.966.944-.966 2.303 0 1.359 1 2.674 1.14 2.861.138.184 1.965 3.003 4.762 4.086.666.255 1.184.407 1.59.522.667.172 1.276.148 1.758.09.536-.064 1.63-.665 1.86-1.308.23-.643.23-1.193.161-1.308-.069-.115-.253-.184-.529-.322z"/>
-        </svg>
+        {/* WhatsApp Image */}
+      <img
+        src={whatsappicon}
+        alt="WhatsApp"
+        className="w-10 h-10"
+      />
       </a>
     </div>
   );

@@ -18,6 +18,7 @@ const Header = () => {
     "Free Delivery All Over India",
     "10% Christmas Offer",
     "New Arrivals",
+    "GST-No 23CMBPA9808H1ZB"
   ];
 
   const navLinks = [
